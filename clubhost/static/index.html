@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClubHost — your club, online.</title><link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="/static/features.css"><script src="/static/app.js" defer></script></head>
+<body>
+<aside><a class="brand" href="/">c<span>h</span><strong>clubhost</strong></a>
+<div class="workspace-label">YOUR WORKSPACE</div><div id="club-name" class="club-name">Student clubs</div>
+<nav><a href="#applications" class="selected">▦ &nbsp; Applications</a><a href="#templates">⊞ &nbsp; Template library</a><a href="/docs" target="_blank" rel="noopener">↗ &nbsp; API reference</a></nav>
+<div class="aside-bottom"><span class="tiny-dot"></span> Built for campus.<p>Small teams. Big ideas.</p></div></aside>
+<main><header><span>Workspace <span class="slash">/</span> Overview</span><button id="logout" class="quiet" hidden>Lock workspace</button></header>
+<div id="notice" role="status" aria-live="polite" hidden></div>
+<section id="login" class="login"><div class="eyebrow">A HOME FOR YOUR NEXT IDEA</div><h1>Your club.<br>Your corner of the internet.</h1><p>Launch a club website or event page from an approved template. Follow every release in one place.</p>
+<form id="login-form"><label for="token">Club access token</label><input id="token" type="password" autocomplete="off" required placeholder="Paste your local club token"><button class="primary">Open workspace <span>→</span></button></form><small>Your local setup generates a private access token for each club. See the README for sign-in instructions.</small></section>
+<div id="dashboard" hidden>
+<section class="intro"><div><div class="eyebrow">MAKE SOMETHING HAPPEN</div><h1>Your club, online.</h1><p>From campus idea to live application. All in one place.</p></div><a class="button primary" href="#templates">＋ New application</a></section>
+<div class="mode-note"><span id="mode-name"></span><span id="mode-description"></span></div>
+<section class="stats"><div><span>Applications</span><strong id="app-count">0</strong><small id="quota-label">of 5 available</small></div><div><span>Latest releases ready</span><strong id="ready-count">0</strong><small>Readiness checks passed</small></div><div><span>Needs attention</span><strong id="failed-count">0</strong><small>Latest release failed</small></div></section>
+<section id="applications"><div class="section-title"><h2>Applications <span id="list-count">0</span></h2><span class="subtle">Updates automatically</span></div><div id="apps"></div></section>
+<section id="templates"><div class="section-title"><div><h2>Start with a template</h2><p class="subtle">A small, approved starting point for your next project.</p></div><span class="tag">CURATED LIBRARY</span></div><div id="template-list" class="template-grid"></div></section>
+<footer>Made for the things you build together.<span>ClubHost / local development</span></footer>
+</div></main>
+<dialog id="create-dialog"><form id="create-form"><div class="dialog-top"><span class="eyebrow">NEW APPLICATION</span><button type="button" class="quiet close-dialog" aria-label="Close">✕</button></div><h2 id="create-title">Create application</h2><p class="subtle">Choose a name. We’ll prepare the first release.</p><label for="app-name">Application name</label><input id="app-name" required minlength="3" maxlength="48" pattern="[a-z0-9]+(-[a-z0-9]+)*" placeholder="computing-club"><small>Lowercase letters, numbers, and single hyphens.</small><button class="primary" type="submit">Create and deploy →</button></form></dialog>
+<dialog id="detail-dialog"><div class="dialog-top"><span class="eyebrow">APPLICATION DETAILS</span><button class="quiet close-dialog" aria-label="Close">✕</button></div><div id="detail-content"></div></dialog>
+<dialog id="preview-dialog"><div class="dialog-top"><span class="eyebrow">PAGE PREVIEW</span><button class="quiet close-dialog" aria-label="Close">✕</button></div><iframe id="preview-frame" title="Application preview" sandbox=""></iframe></dialog>
+<dialog id="editor-dialog"><form id="editor-form"><div class="dialog-top"><span class="eyebrow">EDIT PAGE CONTENT</span><button type="button" class="quiet close-dialog" aria-label="Close">✕</button></div>
+<h2>Make it your own</h2><p class="subtle">Save a draft, then deploy it when you’re ready. The current page stays unchanged until the release succeeds.</p>
+<label for="content-title">Page title</label><input id="content-title" name="title" required minlength="3" maxlength="100">
+<label for="content-tagline">Tagline</label><input id="content-tagline" name="tagline" maxlength="180">
+<label for="content-description">About your club or event</label><textarea id="content-description" name="description" rows="5" maxlength="4000"></textarea>
+<label for="content-email">Contact email</label><input id="content-email" name="contact_email" type="email" maxlength="254">
+<label for="content-label">Link button label</label><input id="content-label" name="link_label" maxlength="40" placeholder="Join our community">
+<label for="content-link">Link URL</label><input id="content-link" name="link_url" type="url" maxlength="500" placeholder="https://...">
+<fieldset id="event-fields"><legend>Event registration</legend>
+<label for="content-date">Event date and time (your local timezone)</label><input id="content-date" name="event_date" type="datetime-local">
+<label for="content-location">Location or meeting instructions</label><input id="content-location" name="location" maxlength="180">
+<label for="content-capacity">Available places</label><input id="content-capacity" name="capacity" type="number" min="1" max="10000">
+<label class="checkbox"><input name="registration_open" type="checkbox"> Accept registrations</label>
+<small>Extra requests join a waitlist. Cancelling an attendee promotes the oldest waiting request. Lowering capacity never cancels existing places.</small>
+</fieldset><button class="primary" type="submit">Save draft</button></form></dialog>
+<dialog id="attendees-dialog"><div class="dialog-top"><span class="eyebrow">EVENT ATTENDEES</span><button class="quiet close-dialog" aria-label="Close">✕</button></div><h2 id="attendees-title">Registrations</h2><p class="subtle">Requests are not email-verified. Contact attendees directly to confirm their status.</p><div class="actions"><button class="secondary" data-export="true">Download CSV</button><button class="secondary" data-reload-attendees="true">Refresh list</button></div><div id="attendees-list"></div></dialog>
+</body></html>

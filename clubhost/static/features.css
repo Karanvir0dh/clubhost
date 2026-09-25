@@ -1,0 +1,9 @@
+textarea{font:inherit;width:100%;border:1px solid #d4ddca;border-radius:6px;padding:13px;resize:vertical;background:#fff;color:#304329}
+fieldset{border:1px solid #dce4d4;border-radius:8px;margin:24px 0 0;padding:18px}legend{font-size:13px;font-weight:600;color:#466a3d}
+.checkbox{display:flex;align-items:center;gap:10px;font-weight:500}.checkbox input{width:17px;height:17px;accent-color:#355739}
+.content-summary,.publication{margin:20px 0;padding:18px;background:#edf2e7;border:1px solid #dce4d4;border-radius:8px;font-size:13px}
+.content-summary p,.publication p{font-size:12px;color:#708166;margin:8px 0}.publication{background:#fff}.publication a{color:#355739;text-decoration:underline;text-underline-offset:3px}
+.dialog-notice{background:#fff1df;padding:12px;border-radius:6px;color:#865c2c;font-size:13px}
+.release-details{margin-top:25px}.release-details summary{font-size:13px;font-weight:600;cursor:pointer;padding:12px 0}
+#attendees-dialog{width:min(780px,95vw)}.attendee{display:flex;justify-content:space-between;align-items:center;gap:15px;border-top:1px solid #dce4d4;padding:17px 0;font-size:13px}.attendee p{margin:6px 0;color:#7b8b70;overflow-wrap:anywhere}.attendee .actions{margin:0}.attendee small{color:#6b835c}
+@media(max-width:600px){.attendee{align-items:flex-start;flex-direction:column}.publication button{margin-bottom:8px}}

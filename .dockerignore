@@ -1,0 +1,13 @@
+.venv
+.data
+.git
+__pycache__
+.pytest_cache
+.test-runs
+.ruff_cache
+*.egg-info
+.env
+tokens.json
+*.db
+*.db-shm
+*.db-wal
